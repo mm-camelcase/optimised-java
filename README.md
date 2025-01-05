@@ -66,6 +66,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
 #### Gradle & Docker Caching ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v3/Dockerfile))
+
 - Implements Gradle caching to avoid redundant build steps.
 
 ```yml
@@ -86,9 +87,34 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 - Uses Docker layer caching to speed up image creation.
 
+```yml
+...
+      # Cache Docker layers
+      - name: Cache Docker layers
+        uses: actions/cache@v4
+        with:
+          path: /tmp/.buildx-cache
+          key: docker-cache-${{ github.ref_name }}-${{ hashFiles('Dockerfile') }}
+          restore-keys: |
+            docker-cache-${{ github.ref_name }}-
+            docker-cache-
+...
+```
+
+
 **Key Metrics:**
 - Build Time
 - Cache Hit Rate
+
+In the example [example user-service](https://github.com/mm-camelcase/user-service/blob/optomised-v3/.github/workflows/build-and-deploy.yml) caching dramatically reduced build and push time for a java source code change  (i.e. no changes to gradle dependancies or dockerfile)
+
+| Metric          | `no caching` | `caching enabled` |
+|-----------------|-----------------|----------------|
+| Build Time      | 57 s           | 4s          |
+| Push Time       | 28 s            | 2s          |
+
+
+
 
 ---
 
