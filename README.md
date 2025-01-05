@@ -38,14 +38,15 @@ Each optimisation technique is explored in detail, with links to corresponding b
 
 Efficient build workflows reduce development cycle times and improve deployment efficiency. The following optimisations target build processes:
 
-#### Multi-Stage Builds ([`optimised-v1`](https://github.com/yourusername/java-optimized/tree/optimised-v1))
+#### Multi-Stage Builds ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v1/Dockerfile))
 - Uses multi-stage builds to optimise build and push processes directly inside the Docker image.
+- Simpler CI/CD Pipelines
 - Reduces the image size by excluding unnecessary build tools.
+- Improved security due to reduced attack surface.
 
 **Key Metrics:**
 - Build Time
 - Push Time
-
 
 Use multi-stage builds to separate the build environment from the runtime environment, reducing the final image size, e.g. 
 
@@ -64,8 +65,25 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ```
 
-#### Gradle & Docker Caching ([`optimised-v3`](https://github.com/yourusername/java-optimized/tree/optimised-v3))
+#### Gradle & Docker Caching ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v3/Dockerfile))
 - Implements Gradle caching to avoid redundant build steps.
+
+```yml
+...
+# Cache Gradle dependencies
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            gradle-${{ runner.os }}-
+            gradle-
+...
+```
+
 - Uses Docker layer caching to speed up image creation.
 
 **Key Metrics:**
