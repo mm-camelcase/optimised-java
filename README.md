@@ -4,6 +4,8 @@ Java Optimized is a project aimed at improving the performance of Java/Spring Bo
 
 The target test service used in this project is a basic **User Service** application. It is a CRUD API built with Spring Boot and Spring Data JPA, designed to perform typical operations such as creating, reading, updating, and deleting user records. This service provides a realistic baseline for evaluating various optimisation strategies.
 
+[todo- more concise]
+
 ---
 
 ## Table of Contents
@@ -43,6 +45,24 @@ Efficient build workflows reduce development cycle times and improve deployment 
 **Key Metrics:**
 - Build Time
 - Push Time
+
+
+Use multi-stage builds to separate the build environment from the runtime environment, reducing the final image size, e.g. 
+
+```shell
+# Stage 1: Build
+FROM maven:3.9.5-eclipse-temurin-17 as builder
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
+
+# Stage 2: Runtime
+FROM amazoncorretto:17-alpine
+WORKDIR /app
+COPY --from=builder /app/target/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+```
 
 #### Gradle & Docker Caching ([`optimised-v3`](https://github.com/yourusername/java-optimized/tree/optimised-v3))
 - Implements Gradle caching to avoid redundant build steps.
