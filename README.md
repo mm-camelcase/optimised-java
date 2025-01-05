@@ -49,7 +49,7 @@ Efficient build workflows reduce development cycle times and improve deployment 
 
 Use multi-stage builds to separate the build environment from the runtime environment, reducing the final image size, e.g. 
 
-```docker
+```dockerfile
 # Stage 1: Build
 FROM maven:3.9.5-eclipse-temurin-17 as builder
 WORKDIR /app
