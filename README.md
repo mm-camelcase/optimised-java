@@ -70,7 +70,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ```yml
 ...
-# Cache Gradle dependencies
+      # Cache Gradle dependencies
       - name: Cache Gradle
         uses: actions/cache@v4
         with:
