@@ -106,7 +106,8 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 - Build Time
 - Cache Hit Rate
 
-In the example [example user-service](https://github.com/mm-camelcase/user-service/blob/optomised-v3/.github/workflows/build-and-deploy.yml) caching dramatically reduced build and push time for a java source code change  (i.e. no changes to gradle dependancies or dockerfile)
+
+In the [user-service example](https://github.com/mm-camelcase/user-service/blob/optomised-v3/.github/workflows/build-and-deploy.yml), caching significantly reduced the build and push time for a Java source code change (i.e., with no modifications to Gradle dependencies or the Dockerfile).
 
 | Metric          | `no caching` | `caching enabled` |
 |-----------------|-----------------|----------------|
