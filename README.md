@@ -6,6 +6,21 @@ The target test service used in this project is a basic **User Service** applica
 
 ---
 
+## Table of Contents
+- [Java Optimized](#java-optimized)
+- [Optimisation Areas](#optimisation-areas)
+  - [1. Build Workflow Optimisations](#1-build-workflow-optimisations)
+    - [Multi-Stage Builds](#multi-stage-builds)
+    - [Gradle & Docker Caching](#gradle--docker-caching)
+  - [2. Runtime Performance Optimisations](#2-runtime-performance-optimisations)
+    - [Lightweight Runtime Image](#lightweight-runtime-image)
+    - [GraalVM Native Image](#graalvm-native-image)
+- [Metrics and Comparison](#metrics-and-comparison)
+- [How to Run](#how-to-run)
+- [Contributing](#contributing)
+- [License](#license)
+---
+
 ## Optimisation Areas
 
 The project focuses on two primary areas of optimisation:
