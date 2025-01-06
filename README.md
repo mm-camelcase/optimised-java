@@ -21,7 +21,7 @@ The target test service used in this project is a basic **User Service** applica
   - [2. Runtime Performance Optimisations](#2-runtime-performance-optimisations)
     - [Lightweight Runtime Image](#lightweight-runtime-image)
     - [GraalVM Native Image](#graalvm-native-image)
-
+- [Potential Cost Savings](#-potential-cost-savings)
 ---
 
 ## Optimisation Areas
@@ -35,11 +35,11 @@ Each optimisation technique is explored in detail, with links to corresponding b
 
 ---
 
-### 1. Build Workflow Optimisations
+## 1. Build Workflow Optimisations
 
 Efficient build workflows reduce development cycle times and improve deployment efficiency. The following optimisations target build processes:
 
-#### Multi-Stage Builds ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v1/Dockerfile))
+### Multi-Stage Builds ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v1/Dockerfile))
 
 **Description:** Multi-stage builds split the build and runtime environments into separate Docker layers, reducing the final image size and simplifying deployment processes. By using multi-stage builds, you can exclude unnecessary tools from the final image and reduce security risks.  
 
@@ -67,11 +67,9 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ---
 
-#### Gradle & Docker Caching ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v3/Dockerfile))
+### Gradle & Docker Caching ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v3/Dockerfile))
 
 **Description:** This technique leverages caching mechanisms for Gradle and Docker layers to avoid redundant build steps and speed up subsequent builds. Caching is essential for large projects, where rebuilding the same layers repeatedly can waste time and resources.
-
-**Description:** This optimisation leverages caching mechanisms for both Gradle dependencies and Docker layers. Gradle caching ensures that previously downloaded dependencies are reused, while Docker layer caching avoids rebuilding unchanged layers, significantly speeding up build times in CI/CD pipelines. Caching is essential for large projects, where rebuilding the same layers repeatedly can waste time and resources.
 
 **Key Benefits:**
 
@@ -122,11 +120,11 @@ Caching significantly reduced the build and push time for a Java source code cha
 
 ---
 
-### 2. Runtime Performance Optimisations
+## 2. Runtime Performance Optimisations
 
 Optimising runtime performance can significantly improve application scalability and reduce operational costs. The following techniques focus on runtime improvements:
 
-#### Lightweight Runtime Image ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v2/Dockerfile#L21))
+### Lightweight Runtime Image ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v2/Dockerfile#L21))
 
 **Description:** Using lightweight base images, such as Alpine or Distroless, reduces the final image size and enhances security by limiting the number of installed packages. This can improve application performance and reduce cloud infrastructure costs.
 
@@ -148,7 +146,6 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 | `eclipse-temurin:17-jdk-alpine`    | Alpine Linux     | ~80 MB     | Minimal image size              | Very small image, suitable for lightweight apps    | Potential compatibility issues        |
 | `ghcr.io/graalvm/graalvm-ce:java17`| Oracle Linux     | ~350 MB    | Native builds and performance   | Supports native compilation with `native-image`    | Larger size and complex native builds |
 
-
 ##### Table 2: Multi-Stage Builds (JDK for Build Stage, JRE for Runtime)
 
 | **Runtime Image**                  | **Base OS**      | **Size**   | **Use Case**                    | **Pros**                                            | **Cons**                              |
@@ -160,11 +157,9 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 | `gcr.io/distroless/java17-debian11`| Distroless       | ~50 MB     | Secure production deployments   | Reduced attack surface, no package manager         | No shell or package manager           |
 | `ghcr.io/graalvm/graalvm-ce:java17`| Oracle Linux     | ~80 MB     | Native builds                   | Use `native-image` to produce a native executable  | Native builds require more setup      |
 
-
-
 ---
 
-#### GraalVM Native Image ([`optimised-v4`](https://github.com/yourusername/java-optimized/tree/optimised-v4))
+### GraalVM Native Image ([`optimised-v4`](https://github.com/yourusername/java-optimized/tree/optimised-v4))
 
 **Description:** GraalVM enables Java applications to be compiled into native executables, resulting in faster startup times and lower memory usage. This is particularly beneficial for serverless environments and microservices where cold start times are critical.
 
@@ -177,13 +172,6 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 
 **Results:**
 
-| ![Standard Image](results/standard.png) | ![Native Image](results/native.png) |
-|--------------------------------------|------------------------------------------|
-| **Standard Image**                          | **Native Image**                            | |
-
-
-**Performance Comparison:** Standard JVM vs GraalVM Native Image
-
 | Metric                  | Standard JVM     | GraalVM Native Image |
 |-------------------------|------------------|----------------------|
 | Max CPU Usage (%)       | 159.7            | 7.0                  |
@@ -192,10 +180,9 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 | Average Real Memory (MB)| 341.92           | 203.98               |
 | Max Virtual Memory (MB) | 8924.07          | 1704.35              |
 | Average Virtual Memory (MB) | 8916.54       | 1695.44              |
-| Startup Time (s)    | 12.24        | 0.067            |
+| Startup Time (s)        | 12.24            | 0.067                |
 
-
-**Key Takeaway:** Standard JVM vs GraalVM Native Image
+**Key Takeaway:**
 
 The comparison highlights a **dramatic reduction in resource usage** when switching from **Standard JVM** to **GraalVM Native Image**:
 
@@ -209,18 +196,12 @@ The comparison highlights a **dramatic reduction in resource usage** when switch
 - ⚡ **Startup Time:**  
   Startup time improves **drastically** from **12.24 seconds** to just **0.067 seconds**, making GraalVM ideal for **serverless** and **microservices**.
 
+## 💰 Potential Cost Savings
 
-
-💰 **Potential Cost Savings**
 These improvements can lead to:
 - **Lower cloud infrastructure costs** due to reduced CPU and memory usage.
 - **Improved scalability** with faster startup times, reducing cold start penalties in **pay-per-use serverless models**.
 - **Better user experience** with faster response times.
 
-
-
 Switching to **GraalVM Native Image** can be a **game-changer** for **high-traffic microservices** or **serverless applications**, offering both **performance gains** and **significant cost savings** at scale.
-
-
-
 

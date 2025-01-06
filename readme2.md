@@ -21,7 +21,7 @@ The target test service used in this project is a basic **User Service** applica
   - [2. Runtime Performance Optimisations](#2-runtime-performance-optimisations)
     - [Lightweight Runtime Image](#lightweight-runtime-image)
     - [GraalVM Native Image](#graalvm-native-image)
-
+- [Potential Cost Savings](#-potential-cost-savings)
 ---
 
 ## Optimisation Areas
