@@ -129,6 +129,15 @@ Caching significantly reduced the build and push time for a Java source code cha
 Optimising runtime performance can significantly improve application scalability and reduce operational costs. The following techniques focus on runtime improvements:
 
 #### Lightweight Runtime Image ([`optimised-v2`](https://github.com/yourusername/java-optimized/tree/optimised-v2))
+
+**Description:** Using lightweight base images, such as Alpine or Distroless, reduces the final image size and enhances security by limiting the number of installed packages. This can improve application performance and reduce cloud infrastructure costs.
+
+**Key Benefits:**
+
+Smaller image sizes
+Enhanced security
+Reduced resource consumption
+
 - Reduces the final image size by using lightweight base images such as Distroless.
 - Enhances security by reducing the attack surface.
 
