@@ -6,7 +6,7 @@ The target test service used in this project is a basic **User Service** applica
 
 [todo- more concise]  
 [todo- short descriptioon at start of each section]  
-[todo- explain load test, stats tool]  
+[todo- explain load test, stats tool - jvm metrics not availabale with native builds so stats gathered using docker stats via psrecord]  
 [todo- add a list of other areas to optomise]  
 
 ---
@@ -62,7 +62,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 **Key Benefits:**
 
-- Smaller image size
+- Smaller image size (see size comparisons between [Single-Stage Builds](https://github.com/mm-camelcase/optimised-java/blob/main/README.md#table-1-single-stage-builds-jdk-included) and [Multi-Stage Builds](#table-2-multi-stage-builds-jdk-for-build-stage-jre-for-runtime) below )
 - Reduced build times
 - Improved security by minimising the attack surface
 - Simpler CI/CD Pipelines
