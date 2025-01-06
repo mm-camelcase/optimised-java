@@ -44,6 +44,7 @@ Efficient build workflows reduce development cycle times and improve deployment 
 
 **Description:** Multi-stage builds split the build and runtime environments into separate Docker layers, reducing the final image size and simplifying deployment processes. By using multi-stage builds, you can exclude unnecessary tools from the final image and reduce security risks.  
 
+Example Dockerfile snippet:
 ```dockerfile
 # Stage 1: Build
 FROM maven:3.9.5-eclipse-temurin-17 as builder
