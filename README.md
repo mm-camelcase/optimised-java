@@ -159,7 +159,7 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 
 ---
 
-### GraalVM Native Image ([`optimised-v4`](https://github.com/yourusername/java-optimized/tree/optimised-v4))
+### GraalVM Native Image ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v4/Dockerfile#L15))
 
 **Description:** GraalVM enables Java applications to be compiled into native executables, resulting in faster startup times and lower memory usage. This is particularly beneficial for serverless environments and microservices where cold start times are critical.
 
@@ -172,10 +172,13 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 
 **Results:**
 
+Since JVM metrics are not available with native builds, the statistics were gathered using docker stats combined with the psrecord tool. The graphs below show the comparison between the standard JVM and GraalVM Native Image.
+
 | ![Standard Image](results/standard.png) | ![Native Image](results/native.png) |
 |--------------------------------------|------------------------------------------|
-| **Standard Image**                          | **Native Image**                            | |
+| **Standard Image**                          | **Native Image**                            |
 
+This table highlights the differences between Standard JVM and GraalVM Native Image builds.
 
 
 | Metric                  | Standard JVM     | GraalVM Native Image |
