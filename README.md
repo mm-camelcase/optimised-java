@@ -196,7 +196,7 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 | Max Virtual Memory (MB) | 8924.07          | 1704.35              |
 | Average Virtual Memory (MB) | 8916.54       | 1695.44              |
 | Startup Time (s)    | 12.24        | 0.067            |
----
+
 
 **Key Takeaway:** Standard JVM vs GraalVM Native Image
 
@@ -212,7 +212,7 @@ The comparison highlights a **dramatic reduction in resource usage** when switch
 - ⚡ **Startup Time:**  
   Startup time improves **drastically** from **12.24 seconds** to just **0.067 seconds**, making GraalVM ideal for **serverless** and **microservices**.
 
----
+
 
 💰 **Potential Cost Savings**
 These improvements can lead to:
@@ -220,58 +220,10 @@ These improvements can lead to:
 - **Improved scalability** with faster startup times, reducing cold start penalties in **pay-per-use serverless models**.
 - **Better user experience** with faster response times.
 
----
+
 
 Switching to **GraalVM Native Image** can be a **game-changer** for **high-traffic microservices** or **serverless applications**, offering both **performance gains** and **significant cost savings** at scale.
 
 
-## Metrics and Comparison
 
-The project tracks and compares the following key metrics across branches:
-
-| Metric          | `optimised-v1` | `optimised-v2` | `optimised-v3` | `optimised-v4` |
-|-----------------|-----------------|----------------|----------------|----------------|
-| Build Time      | TBD             | N/A            | TBD            | N/A            |
-| Push Time       | TBD             | N/A            | N/A            | N/A            |
-| Final Image Size| N/A             | TBD            | N/A            | TBD            |
-| Startup Time    | N/A             | TBD            | N/A            | TBD            |
-| Memory Usage    | N/A             | N/A            | N/A            | TBD            |
-
----
-
-## How to Run
-
-Clone the repository and switch to the desired branch to test the optimisations:
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/java-optimized.git
-
-# Switch to a branch
-git checkout optimised-v1
-```
-
-Build the Docker image:
-
-```bash
-docker build -t java-optimized .
-```
-
-Run the container:
-
-```bash
-docker run --rm java-optimized
-```
-
----
-
-## Contributing
-
-Contributions are welcome! Feel free to submit pull requests or open issues to discuss further optimisations.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
