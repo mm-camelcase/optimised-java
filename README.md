@@ -198,6 +198,33 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 | Startup Time (s)    | 12.24        | 0.067            |
 ---
 
+**Key Takeaway:** Standard JVM vs GraalVM Native Image
+
+The comparison highlights a **dramatic reduction in resource usage** when switching from **Standard JVM** to **GraalVM Native Image**:
+
+- 🔥 **CPU Usage:**  
+  Max CPU drops from **159.7%** to just **7%**, with an average reduction of nearly **90%**.
+
+- 💾 **Memory Consumption:**  
+  - **Real Memory** reduced by over **35%**.  
+  - **Virtual Memory** drops from **~8.9 GB** to **~1.7 GB**, a reduction of more than **80%**.
+
+- ⚡ **Startup Time:**  
+  Startup time improves **drastically** from **12.24 seconds** to just **0.067 seconds**, making GraalVM ideal for **serverless** and **microservices**.
+
+---
+
+💰 **Potential Cost Savings**
+These improvements can lead to:
+- **Lower cloud infrastructure costs** due to reduced CPU and memory usage.
+- **Improved scalability** with faster startup times, reducing cold start penalties in **pay-per-use serverless models**.
+- **Better user experience** with faster response times.
+
+---
+
+Switching to **GraalVM Native Image** can be a **game-changer** for **high-traffic microservices** or **serverless applications**, offering both **performance gains** and **significant cost savings** at scale.
+
+
 ## Metrics and Comparison
 
 The project tracks and compares the following key metrics across branches:
