@@ -66,7 +66,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 - Improved security by minimising the attack surface
 - Simpler CI/CD Pipelines
 
-
+---
 
 #### Gradle & Docker Caching ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v3/Dockerfile))
 
