@@ -7,6 +7,7 @@ The target test service used in this project is a basic **User Service** applica
 [todo- more concise]  
 [todo- short descriptioon at start of each section]  
 [todo- explain load test, stats tool]  
+[todo- add a list of other areas to optomise]  
 
 ---
 
@@ -70,8 +71,17 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 #### Gradle & Docker Caching ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v3/Dockerfile))
 
-- Implements Gradle caching to avoid redundant build steps.
+**Description:** This technique leverages caching mechanisms for Gradle and Docker layers to avoid redundant build steps and speed up subsequent builds. Caching is essential for large projects, where rebuilding the same layers repeatedly can waste time and resources.
 
+**Description:** This optimisation leverages caching mechanisms for both Gradle dependencies and Docker layers. Gradle caching ensures that previously downloaded dependencies are reused, while Docker layer caching avoids rebuilding unchanged layers, significantly speeding up build times in CI/CD pipelines. Caching is essential for large projects, where rebuilding the same layers repeatedly can waste time and resources.
+
+**Key Benefits:**
+
+- Faster build times by avoiding redundant steps
+- Reduced network usage during builds
+- Optimised CI/CD pipelines for faster deployments
+
+Example Gradle Cache Workflow:
 ```yml
 ...
       # Cache Gradle dependencies
@@ -88,8 +98,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 ...
 ```
 
-- Uses Docker layer caching to speed up image creation.
-
+Example Docker Layer Cache Workflow:
 ```yml
 ...
       # Cache Docker layers
@@ -104,13 +113,9 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 ...
 ```
 
+**Results:**
 
-**Key Metrics:**
-- Build Time
-- Cache Hit Rate
-
-
-In the [user-service example](https://github.com/mm-camelcase/user-service/blob/optomised-v3/.github/workflows/build-and-deploy.yml), caching significantly reduced the build and push time for a Java source code change (i.e., with no modifications to Gradle dependencies or the Dockerfile).
+Caching significantly reduced the build and push time for a Java source code change (with no modifications to Gradle dependencies or the Dockerfile).
 
 | Metric          | `no caching` | `caching enabled` |
 |-----------------|-----------------|----------------|
