@@ -134,15 +134,9 @@ Optimising runtime performance can significantly improve application scalability
 
 **Key Benefits:**
 
-Smaller image sizes
-Enhanced security
-Reduced resource consumption
-
-- Reduces the final image size by using lightweight base images such as Distroless.
-- Enhances security by reducing the attack surface.
-
-**Key Metrics:**
-- Final Image Size
+- Smaller image sizes
+- Enhanced security
+- Reduced resource consumption
 
 Here are commonly used Java 17 base images for various requirements. Image sizes vary significantly, affecting resource usage and costs, so choosing an optimised image can help lower cloud expenses.
 
