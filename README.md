@@ -41,16 +41,8 @@ Each optimisation technique is explored in detail, with links to corresponding b
 Efficient build workflows reduce development cycle times and improve deployment efficiency. The following optimisations target build processes:
 
 #### Multi-Stage Builds ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v1/Dockerfile))
-- Uses multi-stage builds to optimise build and push processes directly inside the Docker image.
-- Simpler CI/CD Pipelines
-- Reduces the image size by excluding unnecessary build tools.
-- Improved security due to reduced attack surface.
 
-**Key Metrics:**
-- Build Time
-- Push Time
-
-Use multi-stage builds to separate the build environment from the runtime environment, reducing the final image size, e.g. 
+**Description:** Multi-stage builds split the build and runtime environments into separate Docker layers, reducing the final image size and simplifying deployment processes. By using multi-stage builds, you can exclude unnecessary tools from the final image and reduce security risks.  
 
 ```dockerfile
 # Stage 1: Build
@@ -64,8 +56,16 @@ FROM amazoncorretto:17-alpine
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
-
 ```
+
+**Key Benefits:**
+
+- Smaller image size
+- Reduced build times
+- Improved security by minimising the attack surface
+- Simpler CI/CD Pipelines
+
+
 
 #### Gradle & Docker Caching ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v3/Dockerfile))
 
