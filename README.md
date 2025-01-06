@@ -172,6 +172,12 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 
 **Results:**
 
+| ![Standard Image](results/standard.png) | ![Native Image](results/native.png) |
+|--------------------------------------|------------------------------------------|
+| **Standard Image**                          | **Native Image**                            | |
+
+
+
 | Metric                  | Standard JVM     | GraalVM Native Image |
 |-------------------------|------------------|----------------------|
 | Max CPU Usage (%)       | 159.7            | 7.0                  |
