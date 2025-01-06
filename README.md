@@ -184,6 +184,18 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 |--------------------------------------|------------------------------------------|
 | **Standard Image**                          | **Native Image**                            | |
 
+
+**Performance Comparison:** Standard JVM vs GraalVM Native Image
+
+| Metric                  | Standard JVM     | GraalVM Native Image |
+|-------------------------|------------------|----------------------|
+| Max CPU Usage (%)       | 159.7            | 7.0                  |
+| Average CPU Usage (%)   | 19.63            | 1.58                 |
+| Max Real Memory (MB)    | 348.42           | 214.16               |
+| Average Real Memory (MB)| 341.92           | 203.98               |
+| Max Virtual Memory (MB) | 8924.07          | 1704.35              |
+| Average Virtual Memory (MB) | 8916.54       | 1695.44              |
+| Startup Time (s)    | 12.24        | 0.067            |
 ---
 
 ## Metrics and Comparison
