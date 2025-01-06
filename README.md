@@ -172,13 +172,17 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 
 **Results:**
 
-Since JVM metrics are not available with native builds, the statistics were gathered using docker stats combined with the psrecord tool. The graphs below show the comparison between the standard JVM and GraalVM Native Image.
+Since JVM metrics are not available with native builds, the statistics were gathered using docker stats combined with the [psrecord tool](tools/psrecord/README.md). A simple [load test](scripts/load-test.sh) was used to measure CPU and memory consumption during the test. The graphs below show the comparison between the standard JVM and GraalVM Native Image.   
+  
 
 | ![Standard Image](results/standard.png) | ![Native Image](results/native.png) |
 |--------------------------------------|------------------------------------------|
 | **Standard Image**                          | **Native Image**                            |
 
+  
+  
 This table highlights the differences between Standard JVM and GraalVM Native Image builds.
+  
 
 
 | Metric                  | Standard JVM     | GraalVM Native Image |
