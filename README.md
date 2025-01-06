@@ -4,9 +4,9 @@ Java Optimised is a project aimed at improving the performance of Java/Spring Bo
 
 The target test service used in this project is a basic **User Service** application. It is a CRUD API built with Spring Boot and Spring Data JPA, designed to perform typical operations such as creating, reading, updating, and deleting user records. This service provides a realistic baseline for evaluating various optimisation strategies.
 
-[todo- more concise]
-[todo- short descriptioon at start of each section]
-[todo- explain load test]
+[todo- more concise]  
+[todo- short descriptioon at start of each section]  
+[todo- explain load test, stats tool]  
 
 ---
 
@@ -115,9 +115,6 @@ In the [user-service example](https://github.com/mm-camelcase/user-service/blob/
 |-----------------|-----------------|----------------|
 | Build Time      | 57 s           | 4s          |
 | Push Time       | 28 s            | 2s          |
-
-
-
 
 ---
 
