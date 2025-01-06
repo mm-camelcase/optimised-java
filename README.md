@@ -62,7 +62,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 **Key Benefits:**
 
-- Smaller image size (see size comparisons between [Single-Stage Builds](https://github.com/mm-camelcase/optimised-java/blob/main/README.md#table-1-single-stage-builds-jdk-included) and [Multi-Stage Builds](#table-2-multi-stage-builds-jdk-for-build-stage-jre-for-runtime) below )
+- Smaller image size (see size comparisons between [Single-Stage Builds](#table-1-single-stage-builds-jdk-included) and [Multi-Stage Builds](#table-2-multi-stage-builds-jdk-for-build-stage-jre-for-runtime) below )
 - Reduced build times
 - Improved security by minimising the attack surface
 - Simpler CI/CD Pipelines
@@ -128,7 +128,7 @@ Caching significantly reduced the build and push time for a Java source code cha
 
 Optimising runtime performance can significantly improve application scalability and reduce operational costs. The following techniques focus on runtime improvements:
 
-#### Lightweight Runtime Image ([`optimised-v2`](https://github.com/yourusername/java-optimized/tree/optimised-v2))
+#### Lightweight Runtime Image ([`user-service example`](https://github.com/mm-camelcase/user-service/blob/optomised-v2/Dockerfile#L21))
 
 **Description:** Using lightweight base images, such as Alpine or Distroless, reduces the final image size and enhances security by limiting the number of installed packages. This can improve application performance and reduce cloud infrastructure costs.
 
@@ -167,12 +167,21 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 ---
 
 #### GraalVM Native Image ([`optimised-v4`](https://github.com/yourusername/java-optimized/tree/optimised-v4))
-- Utilises GraalVM to compile Java applications to native executables.
-- Reduces memory usage and improves startup times.
 
-**Key Metrics:**
-- Startup Time
-- Memory Usage
+**Description:** GraalVM enables Java applications to be compiled into native executables, resulting in faster startup times and lower memory usage. This is particularly beneficial for serverless environments and microservices where cold start times are critical.
+
+**Key Benefits:**
+
+- Faster startup times
+- Reduced resource usage
+- Faster startup times.
+- Optimised for microservices and serverless functions
+
+**Results:**
+
+| ![Standard Image](results/standard.png) | ![Native Image](assets/images/native.png) |
+|--------------------------------------|------------------------------------------|
+| **Standard Image**                          | **Native Image**                            | |
 
 ---
 
