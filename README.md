@@ -8,6 +8,7 @@ The target test service used in this project is a basic **User Service** applica
 [todo- short descriptioon at start of each section]  
 [todo- explain load test, stats tool - jvm metrics not availabale with native builds so stats gathered using docker stats via psrecord]  
 [todo- add a list of other areas to optomise]  
+[dissad nativeimage]
 
 ---
 
