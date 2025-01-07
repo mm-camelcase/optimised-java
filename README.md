@@ -214,3 +214,14 @@ These improvements can lead to:
 
 Switching to **GraalVM Native Image** can be a **game-changer** for **high-traffic microservices** or **serverless applications**, offering both **performance gains** and **significant cost savings** at scale.
 
+### Realistic Example of ECS Cost Savings
+For a typical **AWS ECS task**, a Java application using a **Standard JVM** may require **2 vCPU** and **4 GB memory** to handle a given workload. By optimising with **GraalVM Native Image**, the same application can run efficiently with **0.5 vCPU** and **1 GB memory**.
+
+| **Configuration**        | **Standard JVM**       | **GraalVM Native Image** |
+|--------------------------|------------------------|--------------------------|
+| vCPU                     | 2                      | 0.5                      |
+| Memory (GB)              | 4                      | 1                        |
+| Estimated Cost/Month     | ~$100/month            | ~$25/month               |
+| **Total Cost (50 Tasks)** | ~$5,000/month          | ~$1,250/month            |
+
+Assuming a fleet of **50 ECS tasks**, switching to GraalVM could result in **monthly savings of ~$3,750**, or **~$45,000 annually**.
