@@ -3,7 +3,7 @@
 Java Optimised is a project focused on enhancing Java/Spring Boot workflows and deployments by improving build times, reducing image sizes, and lowering memory and CPU usage. It demonstrates optimisation techniques across build workflows, deployments, and runtime performance, using a basic User Service application—a CRUD API built with Spring Boot and Spring Data JPA—as a test service for evaluating these strategies.
 
 
-[todo- add a list of other areas to optomise]  
+[todo- add a list of other areas to optomise- these are low hanging fruit]  
 [dissad nativeimage]
 
 ---
