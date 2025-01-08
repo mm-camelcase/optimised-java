@@ -18,7 +18,7 @@ Java Optimised is a project focused on enhancing Java/Spring Boot workflows and 
     - [Lightweight Runtime Image](#lightweight-runtime-image)
     - [GraalVM Native Image](#graalvm-native-image)
 - [Potential Cost Savings](#-potential-cost-savings)
-- [Potential Cost Savings](#further-optimisation-techniques)
+- [Further Optimisation Techniques](#further-optimisation-techniques)
 ---
 
 ## Optimisation Areas
@@ -167,11 +167,11 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 - Faster startup times.
 - Optimised for microservices and serverless functions
 
-#### Caveats of Using Native Images
+**Caveats of Using Native Images:**
 
 While native images (e.g., using **GraalVM Native Image**) offer significant advantages in terms of reduced startup time and lower memory usage, they also come with several caveats and potential drawbacks that should be carefully considered before adopting them in production:
 
-**Summary of Trade-offs**
+Summary of Trade-offs:
 
 | **Benefit**               | **Caveat**                                     |
 |---------------------------|------------------------------------------------|
