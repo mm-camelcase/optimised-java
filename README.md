@@ -225,3 +225,46 @@ For a typical **AWS ECS task**, a Java application using a **Standard JVM** may 
 | **Total Cost (50 Tasks)** | ~$5,000/month          | ~$1,250/month            |
 
 Assuming a fleet of **50 ECS tasks**, switching to GraalVM could result in **monthly savings of ~$3,750**, or **~$45,000 annually**.
+
+
+## Further Optimisation Techniques
+
+The techniques covered in this repository — multi-stage builds, lightweight runtime images, Gradle and Docker caching, and GraalVM native images — are among the most impactful ways to optimise Java/Spring Boot applications. These approaches significantly improve performance by reducing build times, lowering memory and CPU usage, and minimising image sizes.
+
+However, there are several additional techniques that could further enhance your Java applications. These methods were not covered in this repository but are worth considering based on your project's specific requirements:
+
+### **Other Optimisation Techniques to Explore**
+
+1. **JVM Tuning**  
+   - Customise garbage collection (e.g., G1GC, ZGC)  
+   - Optimise heap size and thread usage based on application load
+
+2. **Lazy Bean Initialization**  
+   - Reduce startup time by only initializing beans when they are first required
+
+3. **AOT Compilation (Spring Native)**  
+   - Use Spring's Ahead-of-Time (AOT) compilation for even faster startup and lower memory footprint
+
+4. **Quarkus or Micronaut Frameworks**  
+   - Explore alternative JVM frameworks that are designed to optimise for cloud-native environments
+
+5. **JIT Profiling**  
+   - Use tools like JFR (Java Flight Recorder) and Mission Control to profile and optimise runtime performance
+
+6. **Container Optimisation**  
+   - Limit container resource usage with Kubernetes resource requests/limits  
+   - Use distroless or Alpine base images to reduce image size further
+
+7. **Database Connection Pooling**  
+   - Fine-tune your HikariCP or other connection pool configurations for better performance
+
+8. **Caching Strategies**  
+   - Implement appropriate caching layers (e.g., Redis, Caffeine) to reduce repetitive calls to slow services or databases
+
+9. **Reactive Programming**  
+   - Consider frameworks like Project Reactor to optimise resource usage for high-throughput, non-blocking applications
+
+10. **Security Hardening and Scanning**  
+    - Use tools to scan for vulnerabilities and harden your Docker images and dependencies
+
+These additional techniques can be layered on top of the existing optimisations in this project to achieve even greater performance gains. Each of them addresses different aspects of Java application performance and should be considered as part of a holistic optimisation strategy.
