@@ -171,35 +171,7 @@ Here are commonly used Java 17 base images for various requirements. Image sizes
 
 While native images (e.g., using **GraalVM Native Image**) offer significant advantages in terms of reduced startup time and lower memory usage, they also come with several caveats and potential drawbacks that should be carefully considered before adopting them in production:
 
-**1. Longer Build Times**  
-- Native image generation is resource-intensive and significantly increases build times compared to traditional JAR builds. This can slow down CI/CD pipelines and require more powerful build agents.
-
-##### **2. Increased Build Complexity**  
-- Building native images requires additional configuration and tools (such as GraalVM) that may not be familiar to all developers. Teams need to learn and maintain these tools, increasing the operational burden.
-
-#### **3. Limited Reflection Support**  
-- Native images have limited support for Java’s reflection APIs, which many libraries (such as Hibernate and Jackson) heavily rely on. Developers need to provide explicit configuration files to declare reflective access, increasing development effort.
-
-#### **4. Compatibility Issues**  
-- Not all Java libraries and frameworks are fully compatible with native images. Some libraries may not work as expected or require additional workarounds.
-
-#### **5. Reduced Debugging Capabilities**  
-- Debugging native images is more challenging compared to traditional JVM applications due to limited tooling and lack of detailed stack traces.
-
-#### **6. Slower Runtime Performance for Some Workloads**  
-- While native images excel in startup time and memory usage, they may perform worse than JIT-compiled JVM applications for long-running, CPU-intensive tasks.
-
-#### **7. Platform-Specific Builds**  
-- Native images are platform-specific, meaning separate builds are required for different operating systems (e.g., Linux, Windows, macOS). This complicates cross-platform distribution and requires additional build and test processes.
-
-#### **8. Lack of HotSpot Optimisations**  
-- The traditional JVM offers Just-In-Time (JIT) compilation and runtime optimisations that improve performance over time, which are not available in native images.
-
-#### **9. Larger Binary Size**  
-- While the native image binary size is generally smaller than a fat JAR, it can still be quite large due to statically linking dependencies.
-
-
-### **Summary of Trade-offs**
+**Summary of Trade-offs**
 
 | **Benefit**               | **Caveat**                                     |
 |---------------------------|------------------------------------------------|
